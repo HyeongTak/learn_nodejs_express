@@ -5,4 +5,11 @@ module.exports = function(app, fs){
             length: 5 // 페이지에서 데이터를 사용 가능
         });
     });
+
+    app.get('/list', function(req, res){
+        fs.readFile(__dirname +"/../data/"+"user.json", 'utf8', function(err, data){
+            console.log(data);
+            res.end(data);
+        });
+    });
 }
